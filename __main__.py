@@ -24,6 +24,9 @@ def round_down(number: float, decimal_places: t.Optional[int]=2) -> float:
     """
     number = round(number, decimal_places)
     
+    if len(str(number).split(".")[-1]) == 1:
+        return float(number)
+    
     if str(number).endswith("0") or str(number).endswith("5"):
         return number
     
